@@ -52,6 +52,10 @@ class Category(Object):
         #         db.session.commit()
         return self
 
+    # Methods
+    def __repr__(self):
+        return "<{} {}>".format(self.title, self.id)
+
     # Classmethods
     @classmethod
     def get_all(cls):
