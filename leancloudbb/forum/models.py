@@ -54,7 +54,7 @@ class Category(Object):
 
     # Classmethods
     @classmethod
-    def get_all(cls, user):
+    def get_all(cls):
         """Get all categories with all associated forums.
         It returns a list with tuples. Those tuples are containing the category
         and their associated forums (whose are stored in a list).

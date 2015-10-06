@@ -10,8 +10,7 @@ forum = Blueprint("forum", __name__)
 
 @forum.route("/")
 def index():
-    categories = Category.get_all()
+    # categories = Category.get_all()
     user_count = Query(User).count()
     return render_template("forum/index.html",
-                           categories=categories,
                            user_count=user_count)

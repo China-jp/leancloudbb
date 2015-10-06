@@ -3,6 +3,7 @@
 import os
 
 import leancloud
+from leancloudbb.utils.populate import create_test_data
 
 from manage import app
 
@@ -14,4 +15,8 @@ PORT = int(os.environ['LC_APP_PORT'])
 leancloud.init(APP_ID, master_key=MASTER_KEY)
 
 application = leancloud.Engine(app)
-app.debug = True
+
+if __name__ == '__main__':
+    # 只在本地开发环境执行的代码
+    # create_test_data()
+    app.run()
