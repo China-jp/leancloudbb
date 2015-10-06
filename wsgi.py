@@ -14,3 +14,4 @@ PORT = int(os.environ['LC_APP_PORT'])
 leancloud.init(APP_ID, master_key=MASTER_KEY)
 
 application = leancloud.Engine(app)
+app.debug = True
