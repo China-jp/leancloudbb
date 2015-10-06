@@ -1,3 +1,5 @@
 Flask
 leancloud-sdk
 Flask-Script
+Unidecode
+Flask-Login
