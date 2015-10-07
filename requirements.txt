@@ -2,4 +2,7 @@ Flask
 leancloud-sdk
 Flask-Script
 Unidecode
-Flask-Login
+Flask-Login==0.2.11
+Flask-Themes2
+Flask-WTF
+https://github.com/sh4nks/flask-babelex/tarball/master#egg=Flask-BabelEx
