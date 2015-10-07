@@ -8,6 +8,47 @@ from leancloudbb.utils.helpers import slugify
 
 __author__ = 'pan'
 
+class Forum(Object):
+    @property
+    def category(self):
+        return self.get("category").fetch()
+
+    @property
+    def title(self):
+        return self.get("title")
+
+    @property
+    def description(self):
+        return self.get("description")
+
+    @property
+    def position(self):
+        return self.get("position")
+
+    @property
+    def locked(self):
+        return self.get("locked")
+
+    @property
+    def show_moderators(self):
+        return self.get("show_moderators")
+
+    @property
+    def external(self):
+        return self.get("external")
+
+    @property
+    def post_count(self):
+        return self.get("post_count")
+
+    @property
+    def topic_count(self):
+        return self.get("topic_count")
+
+    @property
+    def last_post(self):
+        return self.get("last_post").fetch()
+
 
 class Category(Object):
     @property
