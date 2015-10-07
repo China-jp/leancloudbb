@@ -18,5 +18,5 @@ application = leancloud.Engine(app)
 
 if __name__ == '__main__':
     # 只在本地开发环境执行的代码
-    create_test_data(users=0, categories=0)
+    # create_test_data(users=0, categories=0, create_settings=False)
     app.run()
