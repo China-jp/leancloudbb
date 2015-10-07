@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
+import pickle
+from flask import abort
+
 from wtforms import (TextField, IntegerField, FloatField, BooleanField,
                      SelectField, SelectMultipleField, validators)
 from flask_wtf import Form
-from leancloud import Object, Query
+from leancloud import Object, Query, LeanCloudError
 
 from leancloudbb._compat import max_integer, text_type, iteritems
 
@@ -59,7 +62,7 @@ class Setting(Object):
     # For Select*Fields required: choices
     @property
     def extra(self):
-        return self.get("extra")
+        return pickle.loads(self.get("extra"))
 
     @classmethod
     def get_form(cls, group):
@@ -220,8 +223,11 @@ class Setting(Object):
         settings = {}
         result = None
         if from_group is not None:
-            result = SettingsGroup.query.filter_by(key=from_group).\
-                first_or_404()
+            try:
+                result = Query(SettingsGroup).equal_to("key", from_group).find()
+            except LeanCloudError, e:
+                if e.code == 101:
+                    abort(404)
             result = result.settings
         else:
             print(Query(Setting))
