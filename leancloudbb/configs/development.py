@@ -54,7 +54,7 @@ class DevelopmentConfig(DefaultConfig):
     MAIL_PORT = 465
     MAIL_USE_SSL = True
     MAIL_USERNAME = "jiapan.china@gmail.com"
-    MAIL_PASSWORD = "3839jphj"
+    MAIL_PASSWORD = "*******"
     MAIL_DEFAULT_SENDER = ("Your Name", "967168@qq.com")
 
     # The user who should recieve the error logs
