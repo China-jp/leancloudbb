@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import collections
+import pickle
 
 from leancloudbb.management.models import Setting
 
@@ -14,7 +15,7 @@ class LeanCloudBBConfig(collections.MutableMapping):
         self.update(dict(*args, **kwargs))
 
     def __getitem__(self, key):
-        return Setting.as_dict()[key]
+        return pickle.loads(Setting.as_dict()[key])
 
     def __setitem__(self, key, value):
         Setting.update({key.lower(): value})
